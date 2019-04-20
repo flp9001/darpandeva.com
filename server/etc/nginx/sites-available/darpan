@@ -1,4 +1,4 @@
-upstream app_server_wilber {
+upstream app_server_darpan {
     server unix:/home/django/gunicorn-darpan.socket fail_timeout=0;
 }
 
