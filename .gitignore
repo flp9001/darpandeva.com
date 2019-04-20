@@ -56,6 +56,7 @@ coverage.xml
 local_settings.py
 db.sqlite3
 darpan/staticfiles/
+darpan/config/settings/.env
 
 # Flask stuff:
 instance/
@@ -104,4 +105,3 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-darpan/config/settings/secrets.py

@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+import environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -21,11 +29,11 @@ APPS_DIR = os.path.join(BASE_DIR, 'darpan')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+vbl@j186s^q-3=_$%1-d_s$=_1pu5tieb1-u)equ$+7&f2f2&'
+# Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'darpandeva.com', 'darpandeva.com.br']
 
@@ -146,4 +154,4 @@ MEDIA_URL = "/media/"
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL.
-ADMIN_URL = "admin/"
+ADMIN_URL = env('ADMIN_URL', default='admin/')

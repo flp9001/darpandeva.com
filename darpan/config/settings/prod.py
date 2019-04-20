@@ -1,5 +1,4 @@
 from .base import *  # noqa
-from .secrets import *
 
 DEBUG = False
 
