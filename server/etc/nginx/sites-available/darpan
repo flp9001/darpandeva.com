@@ -22,7 +22,7 @@ server {
 
     # your Django project's static files - amend as required
     location /static {
-        alias /home/django/darpandeva.com/darpan/static;
+        alias /home/django/darpandeva.com/darpan/staticfiles;
     }
 
     # Proxy the static assests for the Django Admin panel

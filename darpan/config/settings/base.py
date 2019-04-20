@@ -139,3 +139,11 @@ STATICFILES_FINDERS = [
 MEDIA_ROOT = os.path.join(APPS_DIR, "media")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
+
+
+
+
+# ADMIN
+# ------------------------------------------------------------------------------
+# Django Admin URL.
+ADMIN_URL = "admin/"
