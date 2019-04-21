@@ -1,6 +1,18 @@
+from copy import deepcopy
+from django.utils.log import DEFAULT_LOGGING
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+from sentry_sdk.integrations.logging import LoggingIntegration
+
 from .base import *  # noqa
 
 DEBUG = False
+
+
+logging_dict = deepcopy(DEFAULT_LOGGING)
+logging_dict['loggers']['django']['handlers'] = ['console']
+LOGGING = logging_dict
+
 
 
 
@@ -26,3 +38,10 @@ SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
+
+
+
+# Sentry
+# ------------------------------------------------------------------------------
+SENTRY_DSN = env("SENTRY_DSN")
+sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration()])
