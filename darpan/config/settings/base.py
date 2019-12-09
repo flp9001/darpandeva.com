@@ -19,7 +19,7 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 # reading .env file
-environ.Env.read_env()
+environ.Env.read_env('.env')
 
 
 
@@ -40,7 +40,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'darpandeva.com', 'darpandeva.com.br']
+ALLOWED_HOSTS = ['0.0.0.0', '192.168.1.67','127.0.0.1', 'darpandeva.com', 'www.darpandeva.com', 'darpandeva.com.br', 'www.darpandeva.com.br']
 
 
 # Application definition
@@ -54,7 +54,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    'request',
+]
 
 LOCAL_APPS = [
     'apps.core.apps.CoreConfig',
@@ -68,6 +70,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'request.middleware.RequestMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,7 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -183,3 +186,6 @@ MEDIA_URL = "/media/"
 # ------------------------------------------------------------------------------
 # Django Admin URL.
 ADMIN_URL = env('ADMIN_URL', default='admin/')
+
+
+SENDGRID_API_KEY = env('SENDGRID_API_KEY')

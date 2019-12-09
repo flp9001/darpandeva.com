@@ -18,11 +18,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
+from core.views import *
+
 urlpatterns = [
     
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    #path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', MessageCreate.as_view(), name='home'),
     path(settings.ADMIN_URL, admin.site.urls),
     
     path('about/', TemplateView.as_view(template_name='home.html'), name='about'),
+    path("whatsapp/", whatsappView, name="whatsapp"),
+    path("telegram/", telegramView, name="telegram"),
     path("core/", include("core.urls", namespace="core")),
+    
 ]

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-20 23:38+0000\n"
+"POT-Creation-Date: 2019-04-21 02:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,18 +18,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: darpan/core/models.py:7
+#: apps/core/forms.py:11 apps/core/models.py:7
 msgid "Name"
 msgstr "Nome"
 
-#: darpan/core/models.py:8
+#: apps/core/forms.py:12 apps/core/models.py:8
 msgid "Phone Number"
 msgstr "Telefone"
 
-#: darpan/core/models.py:9
+#: apps/core/forms.py:13 apps/core/models.py:9
 msgid "Email"
 msgstr "Email"
 
-#: darpan/core/models.py:10
+#: apps/core/forms.py:14 apps/core/models.py:10
 msgid "Message"
 msgstr "Mensagem"
+
+#: apps/templates/home.html:176
+msgid "Send"
+msgstr "Enviar"

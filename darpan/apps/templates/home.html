@@ -1,1 +1,232 @@
 {% extends 'base.html' %}
+{% load static i18n %}
+{% block content %}
+    <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Intro -->
+                    <section class="intro">
+                        <header>
+                            <h1>Darpan Deva</h1>
+                            <h2>Terapeuta Tântrico</h2>
+                            <ul class="actions">
+                                <li><a href="#first" class="arrow scrolly"><span class="label">Next</span></a></li>
+                            </ul>
+                        </header>
+                        <div class="content">
+                            <span class="image fill" data-position="center"><img src="{% static 'images/pic01.jpg' %}" alt="" /></span>
+                        </div>
+                    </section>
+
+                <!-- Section -->
+                    <section id="first">
+                        <header>
+                            <h2>Biografia</h2>
+                            
+                        </header>
+                        <div class="content">
+                            <p>Amar a si mesmo é o início de um romance que dura a vida inteira ~ Oscar Wilde </p>
+                            <p>Há mais de 10 anos me dedico ao autoconhecimento, espiritualidade e ao desenvolvimento da consciência. Buscando a cada dia me aceitar mais e mais como sou e assim despertar o mais profundo e duradouro amor: o amor próprio. </p>
+                            <p>
+                                Após alguns anos trabalhando como engenheiro de software, senti que precisava de uma abordagem mais experimental para as minhas questões. Encontrei na meditação silenciosa Vipassana a primeira ferramenta que me possibilitou conhecer mais de mim mesmo e me aperfeiçoar. Também me desenvolvi com a ajuda das medicinas sagradas, dos rituais e da conexão com a natureza. 
+                            </p><p>
+                                Descobri o Tantra colaborando numa comunidade de praticantes no centro do Brasil em Goiás, onde vivi por alguns meses. Através desse contato senti que esse era o caminho que eu estava buscando. Um caminho de auto aceitação que lida com a sexualidade de uma forma muito amorosa e acolhedora. Decidi me tornar terapeuta e fazer a minha formação na <a href="https://www.centrometamorfose.com.br/comuna" target="_blank">Sadhana Comunna Metamorfose</a>.
+                            </p><p>
+                                Nos meus atendimentos utilizo a terapia tântrica, meditações ativas e vibracionais e a massagem. Sou habilitado em todas as modalidades do Método Deva Nishok: Sensitive Massagem, Êxtase Total, Lingam, Yoni e G-Spot e P-Spot. 
+                            </p><p>
+                                Atendo homens e mulheres, LGBT’s e heterossexuais. 
+                            </p><p>
+                                “O amor próprio não é egoísmo. Não se pode amar ninguém verdadeiramente até que se tenha aprendido a amar a si mesmo.”
+                            </p>
+                            <span class="image main"><img src="{% static 'images/pic02.jpg' %}" alt="" /></span>
+                        </div>
+                    </section>
+
+                <!-- Section -->
+                    <section id="beneficios">
+                        <header>
+                            <h2>Benefícios da Terapia Tântrica</h2>
+                            <ul class="actions">
+                                <li><a href="#outro" class="arrow scrolly"><span class="label">Next</span></a></li>
+                            </ul>
+                        </header>
+                        <div class="content">
+                            <p><strong>Etiam tristique libero</strong> eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum.</p>
+                            <ul class="feature-icons">
+                                <li class="icon fa-laptop">Consequat tempus</li>
+                                <li class="icon fa-bolt">Etiam adipiscing</li>
+                                <li class="icon fa-signal">Libero nullam</li>
+                                <li class="icon fa-gear">Blandit condimentum</li>
+                                <li class="icon fa-map-marker">Lorem ipsum dolor</li>
+                                <li class="icon fa-code">Nibh amet venenatis</li>
+                            </ul>
+                            <p>Vehicula ultrices sed ultricies condimentum. Magna sed etiam consequat, et lorem adipiscing sed nulla. Volutpat nisl et tempus et dolor libero, feugiat magna tempus, sed et lorem adipiscing.</p>
+                        </div>
+                    </section>
+
+                <!-- Section -->
+                    <section id="outro">
+                        <header>
+                            <h2>Ultrices erat magna sed condimentum</h2>
+                        </header>
+                        <div class="content">
+                            <p><strong>Integer mollis egestas</strong> nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+
+                            <!-- Section -->
+                                <section>
+                                    <header>
+                                        <h3>Erat aliquam</h3>
+                                        <p>Vehicula ultrices dolor amet ultricies et condimentum. Magna sed etiam consequat, et lorem adipiscing sed dolor sit amet, consectetur amet do eiusmod tempor incididunt  ipsum suspendisse ultrices gravida.</p>
+                                    </header>
+                                    <div class="content">
+                                        <div class="gallery">
+                                            <a href="{% static 'images/gallery/fulls/01.jpg' %}" class="landscape"><img src="{% static 'images/gallery/thumbs/01.jpg' %}" alt="" /></a>
+                                            <a href="{% static 'images/gallery/fulls/02.jpg' %}"><img src="{% static 'images/gallery/thumbs/02.jpg' %}" alt="" /></a>
+                                            <a href="{% static 'images/gallery/fulls/03.jpg' %}"><img src="{% static 'images/gallery/thumbs/03.jpg' %}" alt="" /></a>
+                                            <a href="{% static 'images/gallery/fulls/04.jpg' %}" class="landscape"><img src="{% static 'images/gallery/thumbs/04.jpg' %}" alt="" /></a>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            <!-- Section -->
+                                <section>
+                                    <header>
+                                        <h3>Nisl consequat</h3>
+                                        <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam sed facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet mauris. Ut magna finibus nisi nec lacinia ipsum maximus.</p>
+                                    </header>
+                                    <div class="content">
+                                        <div class="gallery">
+                                            <a href="{% static 'images/gallery/fulls/05.jpg' %}" class="landscape"><img src="{% static 'images/gallery/thumbs/05.jpg' %}" alt="" /></a>
+                                            <a href="{% static 'images/gallery/fulls/06.jpg' %}"><img src="{% static 'images/gallery/thumbs/06.jpg' %}" alt="" /></a>
+                                            <a href="{% static 'images/gallery/fulls/07.jpg' %}"><img src="{% static 'images/gallery/thumbs/07.jpg' %}" alt="" /></a>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            <!-- Section -->
+                                <section>
+                                    <header>
+                                        <h3>Lorem gravida</h3>
+                                        <p>Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aenean ornare velit lacus, ac varius sed enim lorem ullamcorper dolore.  ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis.</p>
+                                    </header>
+                                    <div class="content">
+                                        <div class="gallery">
+                                            <a href="{% static 'images/gallery/fulls/08.jpg' %}" class="portrait"><img src="{% static 'images/gallery/thumbs/08.jpg' %}" alt="" /></a>
+                                            <a href="{% static 'images/gallery/fulls/09.jpg' %}" class="portrait"><img src="{% static 'images/gallery/thumbs/09.jpg' %}" alt="" /></a>
+                                            <a href="{% static 'images/gallery/fulls/10.jpg' %}" class="landscape"><img src="{% static 'images/gallery/thumbs/10.jpg' %}" alt="" /></a>
+                                        </div>
+                                    </div>
+                                </section>
+
+                        </div>
+                    </section>
+
+                <!-- Section -->
+                    <section>
+                        <header>
+                            <h2>Duis sed adpiscing veroeros amet</h2>
+                        </header>
+                        <div class="content">
+                            <p><strong>Proin tempus feugiat</strong> sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.</p>
+                            <ul class="actions">
+                                <li><a href="#" class="button primary large">Get Started</a></li>
+                                <li><a href="#" class="button large">Learn More</a></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    
+                    <section id="contact">
+                        <header>
+                            <h2>Entre em contato</h2>
+                        </header>
+                        <div class="content">
+                            <p><strong>Entre em contato direto pelo Telegram:</strong> 
+                            <a class="botao-tel" href="{% url 'telegram' %}"><i class="fa fa-telegram"></i> (11) 9 3062-8878</a>
+                            <p><strong>Entre em contato direto pelo Whatsapp:</strong> 
+                            <a class="botao-wpp" href="{% url 'whatsapp' %}"><i class="fa fa-whatsapp"></i> (11) 9 3062-8878</a>
+                            
+                            </p>
+                            <p>Ou envie um email:</p>
+                            {% if messages %}
+                              {% for message in messages %}
+                                  <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"><strong>{{ message }}</strong></div>
+                              {% endfor %}
+                            {% endif %}
+                            <form method="post" action="#contact" novalidate>
+                                {% csrf_token %}
+                                  {{ form.non_field_errors }}
+
+                                  {% for hidden_field in form.hidden_fields %}
+                                    {{ hidden_field.errors }}
+                                    {{ hidden_field }}
+                                  {% endfor %}
+                                
+                                <div class="fields">
+                                   
+                                    <div class="field">
+                                        
+                                        {{ form.name.errors }}
+                                        {{ form.name }}
+                                        
+                                    </div>
+                                    <div class="field half">
+                                        {{ form.phone.errors }}
+                                        {{ form.phone }}
+                                    </div>
+                                    <div class="field half">
+                                        {{ form.email.errors }}
+                                        {{ form.email }}
+                                    </div>
+                                    <div class="field">
+                                        {{ form.message.errors }}
+                                        {{ form.message }}
+                                    </div>
+                                </div>
+                                <ul class="actions">
+                                    <li><input type="submit" value="{% trans 'Send' %}" class="button primary" /></li>
+                                </ul>
+                            </form>
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        <footer id="end">
+                            <ul class="items">
+                                <li>
+                                    <h3>Email</h3>
+                                    <a href="#">deva.darpan.deva@gmail.com</a>
+                                </li>
+                                <li>
+                                    <h3>Telegram</h3>
+                                    <a href="{% url 'telegram' %}"><i class="fa fa-telegram"></i> (11) 9 3062-8878</a>
+                                </li>
+                                <li>
+                                    <h3>Whatsapp</h3>
+                                    <a href="{% url 'whatsapp' %}"><i class="fa fa-whatsapp"></i> (11) 9 3062-8878</a>
+                                </li>
+                                <li>
+                                    <h3>Local</h3>
+                                    <span>Fortaleza, Ceará</span>
+                                </li>
+                                <li>
+                                    <h3>Redes Sociais</h3>
+                                    <ul class="icons">
+                                        
+                                        <li><a href="https://www.facebook.com/Darpan-Deva-Terapeuta-T%C3%A2ntrico-371980440279947/" class="icon fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+                                        <li><a href="https://www.instagram.com/darpan.deva/" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </footer>
+                    </section>
+
+                <!-- Copyright -->
+                    
+
+            </div>
+{% endblock content %}
+        
