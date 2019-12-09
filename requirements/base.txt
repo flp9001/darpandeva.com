@@ -1,4 +1,8 @@
 Django==2.2
 django-environ==0.4.5
+django-request==1.5.5
 pytz==2019.1
 sqlparse==0.3.0
+
+sendgrid==6.1.0
+
