@@ -56,6 +56,8 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'request',
+    'constance',
+    'constance.backends.database',
 ]
 
 LOCAL_APPS = [
@@ -96,6 +98,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'constance.context_processors.config',
             ],
         },
     },
@@ -191,3 +194,15 @@ ADMIN_URL = env('ADMIN_URL', default='admin/')
 
 
 SENDGRID_API_KEY = env('SENDGRID_API_KEY')
+
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+
+
+CONSTANCE_CONFIG = {
+    'EMAIL': ('contato@darpandeva.com', 'Email'),
+    'PHONE': ('(11) 9 3062 8878', 'Phone Number'),
+    'PLACE': ('Fortaleza, Ceará', 'City Name'),
+    'FACEBOOK': ('https://www.facebook.com/Darpan-Deva-Terapeuta-T%C3%A2ntrico-371980440279947', 'Facebook URL'),
+    'INSTAGRAM': ('https://www.instagram.com/darpan.deva/', 'Instagram URL'),
+}

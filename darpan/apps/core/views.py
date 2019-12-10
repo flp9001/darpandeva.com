@@ -36,7 +36,7 @@ def whatsappView(request):
         "text": "Olá Darpan tudo bem? Achei seu contato no seu site e gostaria de algumas informações..."
     }
     
-    url = "https://api.whatsapp.com/send"
+    url = "https://wa.me/send"
     url += '?' + urlencode(params)
     
     return redirect(url)

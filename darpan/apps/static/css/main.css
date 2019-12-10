@@ -183,7 +183,7 @@ input, select, textarea {
 		border-bottom: dotted 1px;
 	}
     
-    .botao-wpp {
+.botao-wpp {
   text-decoration: none;
   color: #eee;
   display: inline-block;
@@ -200,6 +200,28 @@ input, select, textarea {
 .botao-wpp:focus {
   background-color: #1a9247;
 }
+
+
+.botao-tlg {
+  text-decoration: none;
+  color: #eee;
+  display: inline-block;
+  background-color: #32afed;
+  font-weight: bold;
+  padding: 1rem 1rem;
+  border-radius: 3px;
+}
+
+.botao-tlg:hover {
+  background-color: #0088cc;
+}
+
+.botao-tlg:focus {
+  background-color: #0099cc;
+}
+
+
+
 
 		a:hover {
 			text-decoration: none;

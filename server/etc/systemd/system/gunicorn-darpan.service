@@ -3,6 +3,7 @@ Description=Gunicorn daemon for Django Project
 Before=nginx.service
 After=network.target
 
+
 [Service]
 WorkingDirectory=/home/django/darpandeva.com
 ExecStart=/home/django/.virtualenvs/darpan/bin/gunicorn \

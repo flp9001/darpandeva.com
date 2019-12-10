@@ -22,6 +22,9 @@
                     <section id="first">
                         <header>
                             <h2>Biografia</h2>
+                            <ul class="actions">
+                                <li><a href="#beneficios" class="arrow scrolly"><span class="label">Next</span></a></li>
+                            </ul>
                             
                         </header>
                         <div class="content">
@@ -53,10 +56,10 @@
                         <div class="content">
                             <p><strong>Etiam tristique libero</strong> eu nibh porttitor amet fermentum. Nullam venenatis erat id vehicula ultrices sed ultricies condimentum.</p>
                             <ul class="feature-icons">
-                                <li class="icon fa-laptop">Consequat tempus</li>
-                                <li class="icon fa-bolt">Etiam adipiscing</li>
-                                <li class="icon fa-signal">Libero nullam</li>
-                                <li class="icon fa-gear">Blandit condimentum</li>
+                                <li class="icon fa-connectdevelop">Desperta a consciência das sensações sutis do corpo</li>
+                                <li class="icon fa-bolt">Modifica as crenças internas sobre sexualidade</li>
+                                <li class="icon fa-signal">Dissolve os bloqueios psicológicos que impedem o prazer</li>
+                                <li class="icon fa-gear">Auxilia na cura de disfunções sexuais</li>
                                 <li class="icon fa-map-marker">Lorem ipsum dolor</li>
                                 <li class="icon fa-code">Nibh amet venenatis</li>
                             </ul>
@@ -141,10 +144,12 @@
                             <h2>Entre em contato</h2>
                         </header>
                         <div class="content">
-                            <p><strong>Entre em contato direto pelo Telegram:</strong> 
-                            <a class="botao-tel" href="{% url 'telegram' %}"><i class="fa fa-telegram"></i> (11) 9 3062-8878</a>
-                            <p><strong>Entre em contato direto pelo Whatsapp:</strong> 
-                            <a class="botao-wpp" href="{% url 'whatsapp' %}"><i class="fa fa-whatsapp"></i> (11) 9 3062-8878</a>
+                            <p>Entre em contato direto pelo App:</p>
+                            <p><strong>Telegram:</strong>
+                            <a class="botao-tlg" href="{% url 'telegram' %}"><i class="fa fa-telegram"></i> {{ config.PHONE }}</a>
+                            </p>
+                            <p><strong>Whatsapp:</strong> 
+                            <a class="botao-wpp" href="{% url 'whatsapp' %}"><i class="fa fa-whatsapp"></i> {{ config.PHONE }}</a>
                             
                             </p>
                             <p>Ou envie um email:</p>
@@ -198,26 +203,26 @@
                             <ul class="items">
                                 <li>
                                     <h3>Email</h3>
-                                    <a href="#">deva.darpan.deva@gmail.com</a>
+                                    <a href="mailto:{{ config.EMAIL }}">{{ config.EMAIL }}</a>
                                 </li>
                                 <li>
                                     <h3>Telegram</h3>
-                                    <a href="{% url 'telegram' %}"><i class="fa fa-telegram"></i> (11) 9 3062-8878</a>
+                                    <a href="{% url 'telegram' %}"><i class="fa fa-telegram"></i> {{ config.PHONE }}</a>
                                 </li>
                                 <li>
                                     <h3>Whatsapp</h3>
-                                    <a href="{% url 'whatsapp' %}"><i class="fa fa-whatsapp"></i> (11) 9 3062-8878</a>
+                                    <a href="{% url 'whatsapp' %}"><i class="fa fa-whatsapp"></i> {{ config.PHONE }}</a>
                                 </li>
                                 <li>
                                     <h3>Local</h3>
-                                    <span>Fortaleza, Ceará</span>
+                                    <span>{{ config.PLACE }}</span>
                                 </li>
                                 <li>
                                     <h3>Redes Sociais</h3>
                                     <ul class="icons">
                                         
-                                        <li><a href="https://www.facebook.com/Darpan-Deva-Terapeuta-T%C3%A2ntrico-371980440279947/" class="icon fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
-                                        <li><a href="https://www.instagram.com/darpan.deva/" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+                                        <li><a href="{{ config.FACEBOOK }}" class="icon fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+                                        <li><a href="{{ config.INSTAGRAM }}" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
                                     </ul>
                                 </li>
                             </ul>

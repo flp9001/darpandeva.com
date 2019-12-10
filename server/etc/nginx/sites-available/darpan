@@ -3,14 +3,22 @@ upstream app_server_darpan {
 }
 
 
-
-
 server {
+    if ($host = www.darpandeva.com.br) {
+        return 301 https://darpandeva.com$request_uri;
+    }
+
+
+    if ($host = darpandeva.com.br) {
+        return 301 https://darpandeva.com$request_uri;
+    }
+
+
+    server_name  darpandeva.com;
     root /usr/share/nginx/html;
     index index.html index.htm;
 
     client_max_body_size 4G;
-    server_name wilber;
 
     keepalive_timeout 5;
 
@@ -42,27 +50,31 @@ server {
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-
 }
 
 
 server {
     if ($host = www.darpandeva.com) {
-        return 301 https://$host$request_uri;
+        return 301 https://darpandeva.com$request_uri;
     } # managed by Certbot
 
-
     if ($host = darpandeva.com) {
-        return 301 https://$host$request_uri;
+        return 301 https://darpandeva.com$request_uri;
+    } # managed by Certbot
+    
+    if ($host = www.darpandeva.com.br) {
+        return 301 https://darpandeva.com$request_uri;
+    } # managed by Certbot
+
+    if ($host = darpandeva.com.br) {
+        return 301 https://darpandeva.com$request_uri;
     } # managed by Certbot
 
 
     listen 80 default_server;
     listen [::]:80 default_server ipv6only=on;
-    server_name  darpandeva.com  www.darpandeva.com;
+    
+    server_name   darpandeva.com  ;
     return 404; # managed by Certbot
-
-
-
 
 }
