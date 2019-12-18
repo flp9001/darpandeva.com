@@ -22,7 +22,7 @@ from core.views import *
 
 urlpatterns = [
     
-    #path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('', MessageCreate.as_view(), name='home'),
     path(settings.ADMIN_URL, admin.site.urls),
     
