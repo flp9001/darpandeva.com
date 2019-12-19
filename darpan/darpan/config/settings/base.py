@@ -14,16 +14,17 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from os.path import dirname, abspath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = dirname(dirname(dirname(dirname(abspath(__file__)))))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%spqxd01r1%==9$pl4@^xo8ubtt)0=qrdtzbkr2d9m@gr&439f'
+SECRET_KEY = '0h3(8l_z172+idn*2=263khk!#i0+-91+olo!d$t_7g=xh1e@#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,11 +38,11 @@ ALLOWED_HOSTS = []
 
 
 
-ROOT_URLCONF = 'darpan.urls'
+ROOT_URLCONF = 'darpan.config.urls'
 
 
 
-WSGI_APPLICATION = 'darpan.wsgi.application'
+WSGI_APPLICATION = 'darpan.config.wsgi.application'
 
 
 # Database
@@ -185,6 +186,7 @@ INSTALLED_APPS = [
 LANGUAGES = (
     ## Customize this
     ('pt', gettext('pt')),
+    ('en', gettext('en')),
 )
 
 CMS_LANGUAGES = {
@@ -193,6 +195,13 @@ CMS_LANGUAGES = {
         {
             'code': 'pt',
             'name': gettext('pt'),
+            'redirect_on_fallback': True,
+            'public': True,
+            'hide_untranslated': False,
+        },
+        {
+            'code': 'en',
+            'name': gettext('en'),
             'redirect_on_fallback': True,
             'public': True,
             'hide_untranslated': False,
