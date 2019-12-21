@@ -1,6 +1,10 @@
 import os  # isort:skip
+from os.path import dirname, abspath
+
+
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
+
 """
 Django settings for darpan project.
 
@@ -13,8 +17,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import os
-from os.path import dirname, abspath
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = dirname(dirname(dirname(dirname(abspath(__file__)))))
@@ -130,6 +134,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'request.middleware.RequestMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -140,7 +145,7 @@ MIDDLEWARE = [
     'cms.middleware.language.LanguageCookieMiddleware'
 ]
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -180,8 +185,19 @@ INSTALLED_APPS = [
     'djangocms_snippet',
     'djangocms_googlemap',
     'djangocms_video',
-    'darpan'
 ]
+
+THIRD_PARTY_APPS = ['request',]
+
+
+LOCAL_APPS = ['darpan',]
+
+
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+
 
 LANGUAGES = (
     ## Customize this
@@ -216,9 +232,11 @@ CMS_LANGUAGES = {
 
 CMS_TEMPLATES = (
     ## Customize this
+    ('wrapped.html', 'Wrapped'),
     ('fullwidth.html', 'Fullwidth'),
     ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right')
+    ('sidebar_right.html', 'Sidebar Right'),
+    ('bolobolo.html', "Bolo'bolo"),
 )
 
 CMS_PERMISSION = True
@@ -243,3 +261,14 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+
+
+REQUEST_IGNORE_PATHS = (
+    r'^pt/admin/',
+)
+
+REQUEST_IGNORE_USERNAME = (
+    'admin',
+)
+

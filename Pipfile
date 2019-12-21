@@ -19,6 +19,9 @@ django-request = "*"
 sendgrid = "*"
 django-extensions = "*"
 django-constance = {extras = ["database"],version = "*"}
+django-webpack-loader = "*"
+django-cms = "*"
+djangocms-installer = "*"
 
 [requires]
 python_version = "3.6"
