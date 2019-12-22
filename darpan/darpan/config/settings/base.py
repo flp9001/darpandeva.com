@@ -2,7 +2,8 @@ import os  # isort:skip
 from os.path import dirname, abspath
 
 
-gettext = lambda s: s
+_ = lambda s: s
+
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 
 """
@@ -201,8 +202,8 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 LANGUAGES = (
     ## Customize this
-    ('pt', gettext('pt')),
-    ('en', gettext('en')),
+    ('pt', _('pt')),
+    ('en', _('en')),
 )
 
 CMS_LANGUAGES = {
@@ -210,14 +211,14 @@ CMS_LANGUAGES = {
     1: [
         {
             'code': 'pt',
-            'name': gettext('pt'),
+            'name': _('pt'),
             'redirect_on_fallback': True,
             'public': True,
             'hide_untranslated': False,
         },
         {
             'code': 'en',
-            'name': gettext('en'),
+            'name': _('en'),
             'redirect_on_fallback': True,
             'public': True,
             'hide_untranslated': False,
@@ -262,10 +263,16 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters'
 )
 
+DJANGOCMS_PICTURE_TEMPLATES = [
+    ('background', _('Background image')),
+    ('main', _('Main image')),
+]
+
 
 
 REQUEST_IGNORE_PATHS = (
     r'^pt/admin/',
+    r'^media/',
 )
 
 REQUEST_IGNORE_USERNAME = (

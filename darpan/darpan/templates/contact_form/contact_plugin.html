@@ -1,0 +1,11 @@
+{% load static i18n %}
+
+<form method="post" action="{% url 'contact' %}" novalidate>
+    {% csrf_token %}
+    
+    {{form}}
+    
+    <ul class="actions">
+        <li><input type="submit" value="{% trans 'Send' %}" class="button primary" /></li>
+    </ul>
+</form>

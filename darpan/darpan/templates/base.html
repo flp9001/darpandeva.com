@@ -2,7 +2,17 @@
 <!doctype html>
 <html>
     <head>
-        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40422916-6"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-40422916-6');
+        </script>
+        
+        
+        <title>{% block title %}Darpan Deva - Terapeuta Tântrico{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <style type="text/css">
             .nav {
@@ -19,7 +29,7 @@
             }
             .content {
                 float: left;
-                width: 80%;
+                width: 100%;
             }
             .sidebar {
                 float: left;
@@ -29,8 +39,10 @@
         
         {% render_block "css" %}
         <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/project.css' %}" />
+        <link rel="icon" href="{% static 'images/favicons/favicon.png' %}">
     </head>
-    <body>
+    <body class="is-preload">
         {% cms_toolbar %}
         
         <div class="container">
@@ -40,7 +52,15 @@
             
         </div>
         {% block content %}{% endblock content %}
-        
+        {% block javascript %}
+        <!-- Scripts -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+        <script src="{% static 'js/browser.min.js' %}"></script>
+        <script src="{% static 'js/breakpoints.min.js' %}"></script>
+        <script src="{% static 'js/util.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        {% endblock javascript %}
         {% render_block "js" %}
     </body>
 </html>

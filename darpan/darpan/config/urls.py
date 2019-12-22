@@ -16,9 +16,10 @@ admin.autodiscover()
 from  darpan import views
 
 urlpatterns = [
-    url(r'^sitemap\.xml$', sitemap,
-        {'sitemaps': {'cmspages': CMSSitemap}}),
-        path('link/<str:target>/', views.linkView, name='link'),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'cmspages': CMSSitemap}}),
+    path('link/<str:target>/', views.linkView, name='link'),
+    path('contact/', views.MessageCreate.as_view(), name='contact'),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 urlpatterns += i18n_patterns(
