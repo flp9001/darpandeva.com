@@ -2,6 +2,11 @@ from .base import *  # noqa
 
 DEBUG = True
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = "0h3(8l_z172+idn*2=263khk!#i0+-91+olo!d$t_7g=xh1e@#"
+
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------

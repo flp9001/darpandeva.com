@@ -1,11 +1,3 @@
-import os  # isort:skip
-from os.path import dirname, abspath
-
-
-_ = lambda s: s
-
-DATA_DIR = os.path.dirname(os.path.dirname(__file__))
-
 """
 Django settings for darpan project.
 
@@ -19,22 +11,42 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 
+import environ
+import os  # isort:skip
+from os.path import dirname, abspath, join
 
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = dirname(dirname(dirname(dirname(abspath(__file__)))))
+_ = lambda s: s
+
+env = environ.Env()
+ROOT_DIR = (
+    environ.Path(__file__) - 3
+) 
+
+DATA_DIR = (
+    environ.Path(__file__) - 3
+)
+
+
+
+READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
+if READ_DOT_ENV_FILE:
+    # OS environment variables take precedence over variables from .env
+    env.read_env(str(ROOT_DIR.path(".env")))
+
+
+
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0h3(8l_z172+idn*2=263khk!#i0+-91+olo!d$t_7g=xh1e@#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG", False)
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -43,11 +55,11 @@ ALLOWED_HOSTS = []
 
 
 
-ROOT_URLCONF = 'darpan.config.urls'
+ROOT_URLCONF = 'config.urls'
 
 
 
-WSGI_APPLICATION = 'darpan.config.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -78,7 +90,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'pt'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/Fortaleza'
 
@@ -94,19 +106,25 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
-STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'darpan', 'static'),
-)
+MEDIA_ROOT = str(DATA_DIR("media"))
+STATIC_ROOT = str(DATA_DIR("staticfiles"))
+
+STATICFILES_DIRS = [str(ROOT_DIR.path("darpan", "static"))]
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+
 SITE_ID = 1
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'darpan', 'templates'),],
+        
+        "DIRS": [str(ROOT_DIR.path('darpan', 'templates'))],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -188,7 +206,10 @@ DJANGO_APPS = [
     'djangocms_video',
 ]
 
-THIRD_PARTY_APPS = ['request',]
+THIRD_PARTY_APPS = [
+    'request',
+    'django_extensions',
+]
 
 
 LOCAL_APPS = ['darpan',]
@@ -202,27 +223,28 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 LANGUAGES = (
     ## Customize this
-    ('pt', _('pt')),
-    ('en', _('en')),
+    ('pt-br', _('pt-br')),
+    ('en-us', _('en-us')),
 )
 
 CMS_LANGUAGES = {
     ## Customize this
     1: [
         {
-            'code': 'pt',
-            'name': _('pt'),
+            'code': 'pt-br',
+            'name': _('pt-br'),
             'redirect_on_fallback': True,
             'public': True,
             'hide_untranslated': False,
         },
         {
-            'code': 'en',
-            'name': _('en'),
+            'code': 'en-us',
+            'name': _('en-us'),
             'redirect_on_fallback': True,
             'public': True,
             'hide_untranslated': False,
         },
+
     ],
     'default': {
         'redirect_on_fallback': True,
@@ -230,6 +252,10 @@ CMS_LANGUAGES = {
         'hide_untranslated': False,
     },
 }
+
+
+LOCALE_PATHS = [ROOT_DIR.path("locale")]
+
 
 CMS_TEMPLATES = (
     ## Customize this
@@ -244,17 +270,14 @@ CMS_PERMISSION = True
 
 CMS_PLACEHOLDER_CONF = {}
 
+
+
 DATABASES = {
-    'default': {
-        'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.sqlite3',
-        'HOST': 'localhost',
-        'NAME': 'project.db',
-        'PASSWORD': '',
-        'PORT': '',
-        'USER': ''
-    }
+    "default": env.db("DATABASE_URL", default="sqlite:///project.db")
 }
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
+
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
