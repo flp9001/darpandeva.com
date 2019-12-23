@@ -74,23 +74,24 @@ class Message(models.Model):
 
 @receiver(post_save, sender=Message)
 def send_email(sender, instance, created, **kwargs):
-    
-    email = get_user_model().objects.filter(is_superuser=True).first().email
-    
-    message = Mail(
-            from_email=instance.email,
-            to_emails=email,
-            subject='[DD-WS] %s - %s' % (instance.name, instance.phone),
-            html_content=instance.message)
+    if not instance.sent:
+        user = get_user_model().objects.filter(is_superuser=True).first()
+        email = user.email if user else 'contato@darpandeva.com'
         
-    try:
-        sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
-        response = sg.send(message)
-    except Exception as e:
-        print(e)
-    else:
-        print("Email sent successfully")
-        instance.sent = True
-        post_save.disconnect(send_email, sender=Message)
-        instance.save()
-        post_save.connect(send_email, sender=Message)
+        message = Mail(
+                from_email=instance.email,
+                to_emails=email,
+                subject='[DD-WS] %s - %s' % (instance.name, instance.phone),
+                html_content=instance.message)
+            
+        try:
+            sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+            response = sg.send(message)
+        except Exception as e:
+            print(e)
+        else:
+            print("Email sent successfully")
+            instance.sent = True
+            post_save.disconnect(send_email, sender=Message)
+            instance.save()
+            post_save.connect(send_email, sender=Message)
