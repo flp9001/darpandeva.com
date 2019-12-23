@@ -294,11 +294,12 @@ DJANGOCMS_PICTURE_TEMPLATES = [
 
 
 REQUEST_IGNORE_PATHS = (
-    r'^pt/admin/',
+    r'^pt-br/admin/',
     r'^media/',
 )
 
 REQUEST_IGNORE_USERNAME = (
-    'admin',
+    'admin', 'darpan'
 )
 
+SENDGRID_API_KEY = env('SENDGRID_API_KEY')

@@ -16,6 +16,6 @@ class ContactForm(forms.ModelForm):
         }
     
     def save(self, commit=True):
-        print("FORM SAVED")
         instance = super(ContactForm, self).save(commit)
+        print("From saved")
         return instance

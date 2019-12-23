@@ -50,7 +50,7 @@ class MessageAdmin(admin.ModelAdmin):
     def date(self, obj):
         return str(obj.created.date())
     
-    list_display = ('date', 'read', 'name', 'message')
+    list_display = ('created', 'read', 'name', 'message')
     actions = [mark_read]
 
 

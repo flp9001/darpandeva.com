@@ -1,7 +1,12 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.conf import settings
+from django.contrib.auth import get_user_model
 
-
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 class LinkAccessManager(models.Manager):
     def create(self, **obj_data):
@@ -52,6 +57,7 @@ class Message(models.Model):
     
     created = models.DateTimeField(auto_now_add=True)
     read = models.BooleanField(default=False)
+    sent = models.BooleanField(default=False)
     
     def get_absolute_url(self):
         return reverse("darpan:message-detail", kwargs={"pk":self.pk})
@@ -64,3 +70,27 @@ class Message(models.Model):
         return "{0} {1}: {2}".format(date, self.name, message)
         
 
+
+
+@receiver(post_save, sender=Message)
+def send_email(sender, instance, created, **kwargs):
+    
+    email = get_user_model().objects.filter(is_superuser=True).first().email
+    
+    message = Mail(
+            from_email=instance.email,
+            to_emails=email,
+            subject='[DD-WS] %s - %s' % (instance.name, instance.phone),
+            html_content=instance.message)
+        
+    try:
+        sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+        response = sg.send(message)
+    except Exception as e:
+        print(e)
+    else:
+        print("Email sent successfully")
+        instance.sent = True
+        post_save.disconnect(send_email, sender=Message)
+        instance.save()
+        post_save.connect(send_email, sender=Message)
