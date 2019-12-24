@@ -165,6 +165,7 @@ MIDDLEWARE = [
 ]
 
 DJANGO_APPS = [
+    'users.apps.UsersConfig',
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -209,6 +210,11 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'request',
     'django_extensions',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 
@@ -219,7 +225,7 @@ LOCAL_APPS = ['darpan',]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
-
+AUTH_USER_MODEL = 'users.User'
 
 LANGUAGES = (
     ## Customize this
