@@ -5,12 +5,12 @@ upstream app_server_darpan {
 
 server {
     if ($host = www.darpandeva.com.br) {
-        return 301 https://darpandeva.com$request_uri;
+        return 301 https://darpandeva.com/pt-br$request_uri;
     }
 
 
     if ($host = darpandeva.com.br) {
-        return 301 https://darpandeva.com$request_uri;
+        return 301 https://darpandeva.com/pt-br$request_uri;
     }
 
 
@@ -63,11 +63,11 @@ server {
     } # managed by Certbot
     
     if ($host = www.darpandeva.com.br) {
-        return 301 https://darpandeva.com$request_uri;
+        return 301 https://darpandeva.com/pt-br$request_uri;
     } # managed by Certbot
 
     if ($host = darpandeva.com.br) {
-        return 301 https://darpandeva.com$request_uri;
+        return 301 https://darpandeva.com/pt-br$request_uri;
     } # managed by Certbot
 
 
