@@ -90,7 +90,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Fortaleza'
 
@@ -115,6 +115,7 @@ STATICFILES_DIRS = [str(ROOT_DIR.path("darpan", "static"))]
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
 ]
 
 SITE_ID = 1
@@ -149,6 +150,8 @@ TEMPLATES = [
 
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
+
     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -161,8 +164,19 @@ MIDDLEWARE = [
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware'
+    
+    'django.middleware.cache.FetchFromCacheMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 ]
+
+# Key in `CACHES` dict
+CACHE_MIDDLEWARE_ALIAS = 'default'
+
+# Additional prefix for cache keys
+CACHE_MIDDLEWARE_KEY_PREFIX = 'django_cache_'
+
+# Cache key TTL in seconds
+CACHE_MIDDLEWARE_SECONDS = 600
 
 DJANGO_APPS = [
     'users.apps.UsersConfig',
@@ -208,6 +222,8 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'cacheops',
+    'compressor',
     'request',
     'django_extensions',
     'allauth',
@@ -284,6 +300,20 @@ DATABASES = {
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+CACHEOPS_REDIS = "redis://localhost:6379/1"
+CACHEOPS = {
+    
+    '*.*': {'timeout': 60*60},
+}
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
@@ -309,3 +339,5 @@ REQUEST_IGNORE_USERNAME = (
 )
 
 SENDGRID_API_KEY = env('SENDGRID_API_KEY')
+
+COMPRESS_ENABLED = True
