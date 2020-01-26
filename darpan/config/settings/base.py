@@ -325,6 +325,7 @@ THUMBNAIL_PROCESSORS = (
 DJANGOCMS_PICTURE_TEMPLATES = [
     ('background', _('Background image')),
     ('main', _('Main image')),
+    ('lazy', _('Lazy image')),
 ]
 
 
