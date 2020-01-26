@@ -10,6 +10,7 @@ from djangocms_picture.models import AbstractPicture
 from filer.fields.image import FilerImageField
 from filer.models import ThumbnailOption
 from easy_thumbnails.files import get_thumbnailer
+from djangocms_attributes_field.fields import AttributesField
 
 @plugin_pool.register_plugin
 class ContactPlugin(CMSPluginBase):
@@ -64,6 +65,12 @@ class LazyPicture(AbstractPicture):
         )
     )
     
+    span_attributes = AttributesField(
+        verbose_name=_('Span attributes'),
+        blank=True,
+        excluded_keys=['href', 'target'],
+    )
+    
     def get_link(self):
         if self.self_link:
             return self.picture.url
@@ -104,6 +111,9 @@ class LazyPicture(AbstractPicture):
             'upscale': upscale,
         }
         return options
+        
+    
+            
     
     @property
     def img_placeholder(self):

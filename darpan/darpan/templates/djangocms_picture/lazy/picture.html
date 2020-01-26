@@ -13,6 +13,10 @@
 {# end render figure/figcaption #}
 
 
+{% if instance.span_attributes %}
+    <span {{ instance.span_attributes_str }}>
+{% endif %}
+
 <img src="{{ instance.img_placeholder }}"
     data-src="{{ instance.img_src }}"
     
@@ -35,6 +39,9 @@
     {% endif %}
     {{ instance.attributes_str }}
 >
+{% if instance.span_attributes %}
+    </span>
+{% endif %}
 
 {# start render figure/figcaption #}
 {% if instance.caption_text %}
