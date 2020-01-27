@@ -33,7 +33,7 @@ server {
     }
     
     location = /favicon.ico {
-        alias /home/django/darpandeva.com/darpan/staticfiles/images/favicon.ico;
+        alias /home/django/darpandeva.com/darpan/staticfiles/images/favicons/favicon.ico;
     }
 
 
