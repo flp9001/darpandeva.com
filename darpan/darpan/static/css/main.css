@@ -1,6 +1,6 @@
 /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-/*@import url(fontawesome-all.min.css);*/
+/*@import 'fontawesome-all.min.css';*/
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700,300i,600i,700i|Raleway:600,800&display=swap");
 /*
 	Paradigm Shift by HTML5 UP
@@ -1824,6 +1824,71 @@ a.arrow {
       object-fit: cover;
       object-position: center;
       width: 100%; }
+    .gallery a[data-position="top left"] img {
+      -moz-object-position: top left;
+      -webkit-object-position: top left;
+      -ms-object-position: top left;
+      object-position: top left; }
+    .gallery a[data-position="top"] img {
+      -moz-object-position: top;
+      -webkit-object-position: top;
+      -ms-object-position: top;
+      object-position: top; }
+    .gallery a[data-position="top right"] img {
+      -moz-object-position: top right;
+      -webkit-object-position: top right;
+      -ms-object-position: top right;
+      object-position: top right; }
+    .gallery a[data-position="right"] img {
+      -moz-object-position: right;
+      -webkit-object-position: right;
+      -ms-object-position: right;
+      object-position: right; }
+    .gallery a[data-position="bottom right"] img {
+      -moz-object-position: bottom right;
+      -webkit-object-position: bottom right;
+      -ms-object-position: bottom right;
+      object-position: bottom right; }
+    .gallery a[data-position="bottom"] img {
+      -moz-object-position: bottom;
+      -webkit-object-position: bottom;
+      -ms-object-position: bottom;
+      object-position: bottom; }
+    .gallery a[data-position="bottom left"] img {
+      -moz-object-position: bottom left;
+      -webkit-object-position: bottom left;
+      -ms-object-position: bottom left;
+      object-position: bottom left; }
+    .gallery a[data-position="left"] img {
+      -moz-object-position: left;
+      -webkit-object-position: left;
+      -ms-object-position: left;
+      object-position: left; }
+    .gallery a[data-position="center"] img {
+      -moz-object-position: center;
+      -webkit-object-position: center;
+      -ms-object-position: center;
+      object-position: center; }
+    .gallery a[data-position="25% 25%"] img {
+      -moz-object-position: 25% 25%;
+      -webkit-object-position: 25% 25%;
+      -ms-object-position: 25% 25%;
+      object-position: 25% 25%; }
+    .gallery a[data-position="75% 25%"] img {
+      -moz-object-position: 75% 25%;
+      -webkit-object-position: 75% 25%;
+      -ms-object-position: 75% 25%;
+      object-position: 75% 25%; }
+    .gallery a[data-position="75% 75%"] img {
+      -moz-object-position: 75% 75%;
+      -webkit-object-position: 75% 75%;
+      -ms-object-position: 75% 75%;
+      object-position: 75% 75%; }
+    .gallery a[data-position="25% 75%"] img {
+      -moz-object-position: 25% 75%;
+      -webkit-object-position: 25% 75%;
+      -ms-object-position: 25% 75%;
+      object-position: 25% 75%; }
     .gallery a.landscape {
       width: 100%; }
       .gallery a.landscape img {
@@ -2009,6 +2074,36 @@ ul.feature-icons {
         width: 100%; }
         ul.feature-icons li:nth-child(2) {
           margin-top: 2rem; } }
+
+.botao-whatsapp {
+  text-decoration: none;
+  color: #eee;
+  display: inline-block;
+  background-color: #25d366;
+  font-weight: bold;
+  padding: 1rem 1rem;
+  border-radius: 3px; }
+
+.botao-whatsapp:hover {
+  background-color: #21bd5c; }
+
+.botao-whatsapp:focus {
+  background-color: #1a9247; }
+
+.botao-telegram {
+  text-decoration: none;
+  color: #eee;
+  display: inline-block;
+  background-color: #32afed;
+  font-weight: bold;
+  padding: 1rem 1rem;
+  border-radius: 3px; }
+
+.botao-telegram:hover {
+  background-color: #0088cc; }
+
+.botao-telegram:focus {
+  background-color: #0099cc; }
 
 /* Wrapper */
 #wrapper {
@@ -2388,42 +2483,3 @@ body.is-ie #wrapper > section > .content > section {
 @media screen and (max-width: 1280px) {
   body.is-ie #wrapper section > footer {
     padding: 4rem; } }
-
-
-
-.botao-whatsapp {
-  text-decoration: none;
-  color: #eee;
-  display: inline-block;
-  background-color: #25d366;
-  font-weight: bold;
-  padding: 1rem 1rem;
-  border-radius: 3px;
-}
-
-.botao-whatsapp:hover {
-  background-color: #21bd5c;
-}
-
-.botao-whatsapp:focus {
-  background-color: #1a9247;
-}
-
-
-.botao-telegram {
-  text-decoration: none;
-  color: #eee;
-  display: inline-block;
-  background-color: #32afed;
-  font-weight: bold;
-  padding: 1rem 1rem;
-  border-radius: 3px;
-}
-
-.botao-telegram:hover {
-  background-color: #0088cc;
-}
-
-.botao-telegram:focus {
-  background-color: #0099cc;
-}
