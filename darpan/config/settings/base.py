@@ -225,7 +225,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'constance',
     'constance.backends.database',
-    'captcha',
+    
     'cacheops',
     'compressor',
     'request',
@@ -348,9 +348,9 @@ SENDGRID_API_KEY = env('SENDGRID_API_KEY')
 COMPRESS_ENABLED = True
 
 
-RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY_V2')
-RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY_V2')
-RECAPTCHA_REQUIRED_SCORE = 0.5
+#RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY_V2')
+#RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY_V2')
+#RECAPTCHA_REQUIRED_SCORE = 0.5
 
 
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
