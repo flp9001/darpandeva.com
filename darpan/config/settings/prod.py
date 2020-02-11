@@ -39,7 +39,7 @@ LOGGING = {
             'filename': str(ROOT_DIR("logfile.txt")),
             'maxBytes': 100000,
             'backupCount': 2,
-            'formatter': 'standard',
+            'formatter': 'verbose',
         },
         "console": {
             "level": "DEBUG",
