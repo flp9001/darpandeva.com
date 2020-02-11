@@ -10,7 +10,7 @@ from .forms import ContactForm
 def linkView(request, target):
     url = request.GET.get("url", None)
     if url is None:
-        settings_name = "%s_URL" % name.upper()
+        settings_name = "%s_URL" % target.upper()
         url = getattr(settings, settings_name, None)
         
     if url:
