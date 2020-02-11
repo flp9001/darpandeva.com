@@ -1,26 +1,29 @@
 from django.shortcuts import redirect
 from django.views import generic
 from django.contrib import messages
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from .models import LinkAccess
 from .forms import ContactForm
 
 def linkView(request, target):
-    url = request.GET['url']
-    link_access = LinkAccess.objects.create(name=target, url=url)
-    link_access.save()
-    print("Redirecting to", url)
-    return redirect(url)
+    url = request.GET.get("url", None)
+    if url is None:
+        settings_name = "%s_URL" % name.upper()
+        url = getattr(settings, settings_name, None)
+        
+    if url:
+        link_access = LinkAccess.objects.create(name=target, url=url)
+        link_access.save()
+        return redirect(url)
+    else:
+        return redirect('/')
 
 
-#def contactView(request):
-#    print("I got the form")
 
-
-#class MessageCreate(generic.edit.CreateView):
 class MessageCreate(generic.FormView):
-    template_name = 'contact_form/contact_plugin.html'
+    template_name = 'contact_form/contact.html'
     form_class = ContactForm
     success_url = '/'
 

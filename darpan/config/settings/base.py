@@ -32,7 +32,8 @@ DATA_DIR = (
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
-    env.read_env(str(ROOT_DIR.path(".env")))
+    env_path = str(ROOT_DIR.path(".env"))
+    env.read_env(env_path)
 
 
 
@@ -222,6 +223,9 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'constance',
+    'constance.backends.database',
+    'captcha',
     'cacheops',
     'compressor',
     'request',
@@ -342,3 +346,16 @@ REQUEST_IGNORE_USERNAME = (
 SENDGRID_API_KEY = env('SENDGRID_API_KEY')
 
 COMPRESS_ENABLED = True
+
+
+RECAPTCHA_PUBLIC_KEY = env('RECAPTCHA_PUBLIC_KEY_V2')
+RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY_V2')
+RECAPTCHA_REQUIRED_SCORE = 0.5
+
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+CONSTANCE_DATABASE_CACHE_BACKEND = 'default'
+CONSTANCE_CONFIG = {
+    'TELEGRAM_URL': ('https://t.me/DarpanDevaTantra', 'Telegram URL', str),
+    'WHATSAPP_URL': ('https://wa.me/5511930628878?text=Ol%C3%A1%2C%20peguei%20seu%20contato%20no%20site%20DarpanDeva.com%20e%20fiquei%20interessado%20no%20seu%20trabalho!', 'Whatsapp URL', str),
+}
