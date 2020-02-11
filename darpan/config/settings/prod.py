@@ -33,13 +33,21 @@ LOGGING = {
         }
     },
     "handlers": {
+        'logfile': {
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': str(ROOT_DIR("logfile.txt")),
+            'maxBytes': 100000,
+            'backupCount': 2,
+            'formatter': 'standard',
+        },
         "console": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
             "formatter": "verbose",
         }
     },
-    "root": {"level": "INFO", "handlers": ["console"]},
+    "root": {"level": "INFO", "handlers": ["console", "logfile"]},
     "loggers": {
         "django.db.backends": {
             "level": "ERROR",
@@ -47,10 +55,10 @@ LOGGING = {
             "propagate": False,
         },
         # Errors logged by the SDK itself
-        "sentry_sdk": {"level": "ERROR", "handlers": ["console"], "propagate": False},
+        "sentry_sdk": {"level": "ERROR", "handlers": ["console", "logfile"], "propagate": False},
         "django.security.DisallowedHost": {
             "level": "ERROR",
-            "handlers": ["console"],
+            "handlers": ["console", "logfile"],
             "propagate": False,
         },
     },

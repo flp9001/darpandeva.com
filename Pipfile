@@ -35,6 +35,7 @@ brotli = "*"
 lxml = "*"
 django-redis = "*"
 django-cacheops = "*"
+django-recaptcha = "*"
 
 [requires]
 python_version = "3.6"
