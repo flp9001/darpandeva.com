@@ -13,7 +13,8 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: #000;
+    text-align: justify;
 }
 
 a,
@@ -147,6 +148,7 @@ a.article:hover {
 
 #content {
     width: 100%;
+    
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
@@ -158,6 +160,11 @@ h1{
 
 .jumbotron{
     background-color: #000000;
+}
+
+
+.container{
+    max-width: 720px;
 }
 
 /* ---------------------------------------------------
