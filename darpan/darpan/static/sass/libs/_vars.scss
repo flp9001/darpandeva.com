@@ -28,6 +28,7 @@
 		family:					('Source Sans Pro', Helvetica, sans-serif),
 		family-fixed:			('Courier New', monospace),
 		family-heading:			('Raleway', Helvetica, sans-serif),
+		family-h1:			 	('Indie Flower', 'Raleway', Helvetica, sans-serif),
 		weight:					300,
 		weight-bold:			600,
 		weight-extrabold:		700,
@@ -56,8 +57,10 @@ $main-gradient2: linear-gradient(to bottom,  rgba(200,126,184,1) 0%,rgba(162,147
 		border:					rgba(144,144,144,0.25),
 		border-bg:				rgba(144,144,144,0.1),
 		//accent:					#49fcd4,
-        accent:					$main-color,
+		accent:					$main-color,
 		accent-border:			desaturate(darken($main-color, 8), 30),
 		accent-alt:				desaturate(darken($main-color, 10), 20),
-		accent-bg:				transparentize($main-color, 0.75)
+		accent-bg:				transparentize($main-color, 0.75),
+        
+        white-bg:				transparentize(white, 0.0833)
 	);
