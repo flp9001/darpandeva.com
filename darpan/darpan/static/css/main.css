@@ -164,12 +164,14 @@ h1 {
   letter-spacing: -0.05em;
   line-height: 1.1;
   margin: 0 0 1.5rem 0;
-  text-transform: none; }
+  text-transform: none;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073; }
 
 h2 {
   font-size: 1.25rem;
   font-weight: 800;
-  margin: 0 0 2rem 0; }
+  margin: 0 0 2rem 0;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073; }
 
 h3 {
   font-size: 0.875rem; }
