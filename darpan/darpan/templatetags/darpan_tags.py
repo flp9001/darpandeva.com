@@ -19,3 +19,10 @@ def prev_page(page):
         return page.node.get_prev_sibling().item.get_absolute_url()
     except:
         return None
+
+@register.filter
+def parent(page):
+    try:
+        return page.get_parent_page().get_absolute_url()
+    except:
+        return None

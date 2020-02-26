@@ -290,6 +290,7 @@ CMS_TEMPLATES = (
     ('sidebar_left.html', 'Sidebar Left'),
     ('sidebar_right.html', 'Sidebar Right'),
     ('bolobolo.html', "Bolo'bolo"),
+    ('bolobolo_note.html', "Bolo'bolo - Nota"),
 )
 
 CMS_PERMISSION = True
@@ -342,6 +343,10 @@ REQUEST_IGNORE_PATHS = (
 REQUEST_IGNORE_USERNAME = (
     'admin', 'darpan'
 )
+
+
+
+
 
 SENDGRID_API_KEY = env('SENDGRID_API_KEY')
 
