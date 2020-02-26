@@ -7,8 +7,6 @@ from django.core.management.commands import loaddata, dumpdata
 APPS = [
     "cms",
     "darpan",
-    "auth",
-    "contenttypes",
     "sites",
     "bootstrap4_alerts",
     "bootstrap4_badge",
@@ -43,5 +41,5 @@ class Command(BaseCommand):
     help = 'Dump CMS Data'
     
     def handle(self, *args, **options):
-        call_command('dumpdata', '--natural-foreign', *APPS)
+        call_command('dumpdata', '--natural-foreign', '--indent 2', *APPS)
         
