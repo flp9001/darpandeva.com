@@ -1,0 +1,25 @@
+{% extends "bolobolo/base_bolobolo.html" %}
+{% load cms_tags menu_tags sekizai_tags static darpan_tags %}
+
+{% block content %}
+    {% placeholder "content" %}
+{% endblock content %}
+
+
+
+{% block my_css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" async >
+<style>
+h2{
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073; 
+}
+</style>
+{% endblock my_css %}
+
+{% block javascript %}
+<script src="{% static 'js/three.min.js' %}" ></script>
+<script src="{% static 'js/postprocessing.min.js' %}" ></script>
+<script>
+{% include 'bg_canvas.js' %}
+</script>
+{% endblock javascript %}

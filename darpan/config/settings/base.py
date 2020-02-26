@@ -285,12 +285,16 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 
 CMS_TEMPLATES = (
     ## Customize this
-    ('wrapped.html', 'Wrapped'),
-    ('fullwidth.html', 'Fullwidth'),
-    ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right'),
-    ('bolobolo.html', "Bolo'bolo"),
-    ('bolobolo_note.html', "Bolo'bolo - Nota"),
+    ('wrapped.html', 'Darpan Deva'),
+    
+    #('fullwidth.html', 'Fullwidth'),
+    
+    
+    #('sidebar_left.html', 'Sidebar Left'),
+    #('sidebar_right.html', 'Sidebar Right'),
+    ('bolobolo/bolobolo.html', "Bolo'bolo"),
+    ('bolobolo/bolobolo_capa.html', "Bolo'bolo - Capa"),
+    ('bolobolo/bolobolo_note.html', "Bolo'bolo - Nota"),
 )
 
 CMS_PERMISSION = True

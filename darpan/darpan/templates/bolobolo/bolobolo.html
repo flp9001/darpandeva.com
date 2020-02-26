@@ -1,0 +1,67 @@
+{% extends "bolobolo/base_bolobolo.html" %}
+{% load cms_tags menu_tags sekizai_tags static darpan_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="text-center">
+            
+            <ul>
+            {% show_sub_menu 0 0 %}
+            </ul>
+            <button type="button" class="btn btn-light  sidebarCollapse">
+                <i class="fas fa-align-left"></i>
+                <span>Capítulos</span>
+            </button>
+            </div>
+        
+        <ol>
+            {% show_sub_menu 1 1 %}
+        </ol>
+        {% placeholder "sidebar" %}
+    </nav>
+    
+    <!-- Page Content  -->
+    <div id="content">
+        
+        
+        
+        {% placeholder "header" %}
+        <button type="button" class="btn btn-light sidebarCollapse">
+            <i class="fas fa-align-left"></i>
+        </button>
+        {% placeholder "content" %}
+        
+        
+        {% block navigation %}
+        <!-- Navigation  -->
+        <div class="text-center">
+            <div class="row align-items-center justify-content-center">
+                <div class="col col-2">
+                    {% if request.current_page|prev_page %}
+                    <a class="badge badge-light" href="{{ request.current_page|prev_page }}">&lt; Anterior</a>
+                    {% endif %}
+                </div>
+                <div class="col col-2">
+                    
+                </div>
+                <div class="col col-2">
+                    {% if request.current_page|next_page %}
+                    <a class="badge badge-light" href="{{ request.current_page|next_page }}">Próximo &gt;</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endblock navigation %}
+        
+        
+        
+    </div>
+</div>
+    
+    
+{% endblock content %}
+

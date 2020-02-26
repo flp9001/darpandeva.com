@@ -1,0 +1,83 @@
+{% load cms_tags menu_tags sekizai_tags static compress %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40422916-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-40422916-6');
+    </script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    
+    <meta property="og:url" content="https://darpandeva.com/pt-br/bolobolo/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bolo'bolo">
+    <meta property="og:image" content="https://darpandeva.com/media/filer_public/12/f3/12f32ca0-ce65-47ac-9144-ecda5eb324f0/capa1.gif">
+    <meta property="og:image:type" content="image/gif">
+    <meta property="og:image:width" content="333"> 
+    <meta property="og:image:height" content="494"> 
+    <meta property="og:description" content="Bolo'bolo tem como fundamento a ideia de superação do sistema capitalista em prol do surgimento de redes de socialidade descentralizada difundidas e propagadas por comunidades autônomas libertárias (os chamados bolos) definidas por gostos, estilos de vida e afinidades partilhadas por seus membros. Nesta mesma obra P.M. apresenta um conjunto de referenciais simbólicos criados tal qual uma linguagem planejada incipiente (asa'pili) com vistas para transformação social, termos e preceitos a serem partilhados por uma possível 'comunidade global de comunidades' (ou bolo'bolo).">
+    
+    
+
+    <title>{% block title %}Bolo'bolo{% endblock title %}</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Bootstrap CSS CDN 
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" async>
+    -->
+    <!-- Our Custom CSS -->
+    
+    
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/bolo_style.css' %}" async>
+    {% endcompress %}
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+    {% render_block "css" %}
+    
+    {% block my_css %}
+    {% endblock my_css %}
+    
+</head>
+
+<body>
+    {% cms_toolbar %}
+    {% block content %}
+    
+    
+    
+    {% endblock content %}
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+    
+    {% render_block "js" %}
+    
+    {% block javascript %}
+    {% endblock javascript %}
+</body>
