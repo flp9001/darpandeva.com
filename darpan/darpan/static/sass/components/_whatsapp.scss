@@ -1,37 +1,134 @@
 
-.botao-whatsapp {
+.contact-button{
   text-decoration: none;
-  color: #eee;
+  
   display: inline-block;
-  background-color: #25d366;
-  font-weight: bold;
-  padding: 1rem 1rem;
-  border-radius: 3px;
+  letter-spacing: 0.03rem;
+  border-radius: 30px;
+  font-size: 1rem;
 }
 
-.botao-whatsapp:hover {
+
+button.contact-button{
+  
+}
+
+
+
+a.contact-button{
+  padding: 1rem 1rem;
+}
+
+
+
+.whatsapp-button{
+  background-color: #25d366;
+}
+
+.whatsapp-button:hover {
   background-color: #21bd5c;
 }
 
-.botao-whatsapp:focus {
+.whatsapp-button:focus {
   background-color: #1a9247;
 }
 
 
-.botao-telegram {
-  text-decoration: none;
-  color: #eee;
-  display: inline-block;
+
+
+
+.telegram-button {
   background-color: #32afed;
-  font-weight: bold;
-  padding: 1rem 1rem;
-  border-radius: 3px;
 }
 
-.botao-telegram:hover {
+.telegram-button:hover {
   background-color: #0088cc;
 }
 
-.botao-telegram:focus {
+.telegram-button:focus {
   background-color: #0099cc;
+}
+
+
+
+
+
+
+.float{
+    position:fixed;
+    width:40px;
+    height:40px;
+    bottom:40px;
+    right:40px;
+    
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    
+    z-index:100;
+}
+
+.float::before {
+    content: '1';
+    width: 15px;
+    height: 15px;
+    opacity:0;
+    border-radius: 50%!important;
+    background-color: #F00 !important;
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: Poppins,sans-serif;
+    text-align: center;
+    color: #fff;
+    line-height: 15px;
+    animation: wapp_notification_icon_animation_msg 0.2s  forwards; 
+    animation-delay: 15s; 
+    
+}
+
+.my-float{
+    width: 50px;
+    height: 50px;
+    padding: 0 0;
+    background-image: url(https://darpandeva.com/media/filer_public/74/57/7457656a-4457-4228-8bb4-739988d263fb/whatsapp-logo.svg);
+    background-size:cover;
+    background-repeat: no-repeat;
+
+    box-shadow: 0 0 0 0 rgba(76, 232, 61, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-animation: pulse 2.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -moz-animation: pulse 2.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -ms-animation: pulse 2.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+
+
+
+
+.my-float:hover 
+{
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  animation: none;
+}
+
+@-webkit-keyframes pulse {to {box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);}}
+@-moz-keyframes pulse {to {box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);}}
+@-ms-keyframes pulse {to {box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);}}
+@keyframes pulse {to {box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);}}
+
+
+@keyframes wapp_notification_icon_animation_msg {
+  0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.8)}
+  100% { box-shadow: 0 0 0 25px rgba(0, 230, 118, 0)}
+}
+
+@keyframes wapp_notification_icon_animation_msg {
+   0% {opacity: 0; transform: translateY(-10px);}
+   100% {opacity: 1; transform: translateY(0px);}
 }
