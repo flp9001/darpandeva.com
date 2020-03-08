@@ -3,6 +3,17 @@ upstream app_server_darpan {
 }
 
 
+# Catch all requests with an invalid HOST header
+server {
+    server_name "";
+    
+    listen      80;
+    listen      443 ssl;
+    
+    return      444;
+}
+
+
 server {
     if ($host = www.darpandeva.com.br) {
         return 301 https://darpandeva.com/pt-br$request_uri;
@@ -32,7 +43,7 @@ server {
         alias /home/django/darpandeva.com/darpan/staticfiles;
     }
     
-    location = /favicon.ico {
+    location /favicon.ico {
         alias /home/django/darpandeva.com/darpan/staticfiles/images/favicons/favicon.ico;
     }
 
