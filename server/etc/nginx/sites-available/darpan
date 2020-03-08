@@ -8,7 +8,7 @@ server {
     server_name "";
     
     listen      80;
-    listen      443 ssl;
+    #listen      443 ssl;
     
     return      444;
 }
