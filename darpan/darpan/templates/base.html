@@ -43,6 +43,19 @@
         
         
         
+        <!-- Hotjar Tracking Code for https://darpandeva.com -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:1729242,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+        
+        
         
         <title>{% block title %}Darpan Deva - Terapeuta Tântrico{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -55,28 +68,7 @@
         <meta property="og:image:height" content="900"> 
         <meta property="og:description" content="Há mais de 10 anos me dedico ao autoconhecimento, espiritualidade e ao desenvolvimento da consciência. Buscando a cada dia me aceitar mais e mais como sou e assim despertar o mais profundo e duradouro amor: o amor próprio.">
         
-        <style type="text/css">
-            .nav {
-                padding-left: 0;
-            }
-            .nav li {
-                display: inline;
-                list-style-type: none;
-                padding-right: 20px;
-            }
-            .container {
-                width: 940px;
-                margin: 0 auto
-            }
-            .content {
-                float: left;
-                width: 100%;
-            }
-            .sidebar {
-                float: left;
-                width: 20%;
-            }
-        </style>
+        
         
         {% render_block "css" %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" async >
@@ -106,6 +98,7 @@
         {% block javascript %}
         <!-- Scripts -->
         {% compress js %}
+        
         <script src="{% static 'js/jquery.min.js' %}" ></script>
         <script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
         <script src="{% static 'js/browser.min.js' %}"></script>
@@ -116,8 +109,12 @@
         
         {% endcompress %}
         
-        <script src="{% static 'js/three.min.js' %}" ></script>
-        <script src="{% static 'js/postprocessing.min.js' %}" ></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/postprocessing@6.12.2/build/postprocessing.min.js" ></script>
+        
+
+        
         
         
         
