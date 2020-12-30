@@ -1,0 +1,30 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+pytz = "==2020.5"
+python-slugify = "==4.0.1"
+rcssmin = "==1.0.6"
+argon2-cffi = "==20.1.0"
+whitenoise = "==5.2.0"
+redis = "==3.5.3"
+hiredis = "==1.1.0"
+django-environ = "==0.4.5"
+django-model-utils = "==4.1.1"
+django-allauth = "==0.44.0"
+django-crispy-forms = "==1.10.0"
+django-compressor = "==2.4"
+django-redis = "==4.12.1"
+gunicorn = "==20.0.4"
+psycopg2 = "==2.8.6"
+django-storages = {extras = ["boto3"], version = "==1.11.1"}
+django-anymail = {extras = ["mailgun"], version = "==8.1"}
+Pillow = "==8.0.1"
+Django = "==3.0.11"
+
+[requires]
+python_version = "3.8"

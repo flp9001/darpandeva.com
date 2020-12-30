@@ -1,2 +1,4 @@
-web: gunicorn darpan.config.wsgi  --log-file -
-release: make release
+release: python manage.py migrate
+
+web: gunicorn config.wsgi:application
+
