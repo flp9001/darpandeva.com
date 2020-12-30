@@ -17,6 +17,7 @@ END
 
 if compress_enabled
 then
+  python manage.py collectstatic --noinput
   python manage.py compress
 fi
 python manage.py collectstatic --noinput
